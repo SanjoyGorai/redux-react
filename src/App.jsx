@@ -6,16 +6,17 @@ import { decrement, increment } from './features/counter/counterSlice'
 const App = () => {
 
 
-  const value = useSelector (s => s.counter.value);
+  const value = useSelector(state => state.counter.value);
+  const dispatch = useDispatch();
 
   function handleClick(e) {
     switch (e.target.id) {
       case 'increment':
         console.log(e.target.id);
-        
+        dispatch(increment());
         break;
       case 'decrement':
-
+        dispatch(decrement())
         console.log(e.target.id);
         break;
     }
